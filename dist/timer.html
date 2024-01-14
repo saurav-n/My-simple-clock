@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Document</title>
+    <script defer src="timer.js"></script>
+    <style>
+        @keyframes rightToLeftMove {
+            from{
+                transform: translateX(15%);
+            }
+            to{
+                transform: translateX(0);
+            }
+        }
+        @keyframes leftToRightMove {
+            from{
+                transform: translateX(-15%);
+            }
+            to{
+                transform: translateX(0);
+            }
+        }
+        .left-btn-animate{
+            animation: rightToLeftMove 0.5s ease-in-out;
+        }
+        .right-btn-animate{
+            animation: leftToRightMove 0.5s ease-in-out;
+        }
+    </style>
+</head>
+<body class="bg-slate-700 h-screen flex items-center justify-center px-4 py-2">
+    <main class="w-[450px] max-w-2xl h-full max-h-[700px] bg-slate-900 rounded-md flex flex-col">
+        <!-- content -->
+        <div class="h-full flex flex-col justify-center items-center gap-y-3">
+            <!-- timer running screen -->
+            <div class="timer-screen h-full w-full hidden flex-col justify-center items-center gap-y-2 px-2">
+                <div class="full-circle w-[50%] min-w-[175px] max-w-[235px] aspect-square bg-slate-500 rounded-full flex overflow-hidden absolute justify-center items-center">
+                    <div class="semicircle-one w-[50%] h-full bg-blue-700 origin-right"></div>
+                    <div class="semicircle-two-wrapper h-full w-[50%] overflow-hidden">
+                        <div class="semicircle-two w-full h-full bg-blue-700 origin-left"></div>
+                    </div>
+                    <div class="outermost-circle w-[97%] h-[97%] aspect-square rounded-full bg-slate-900 absolute flex justify-center items-center">
+                        <p class="time-shower text-blue-700 text-lg sm:text-2xl">00:00:00</p>
+                    </div>
+                </div>
+
+                <div class="w-[50%] flex justify-center gap-x-2 pt-[300px] text-base sm:text-lg">
+                    <button class="w-[50%] min-w-[64px] bg-slate-500 rounded-l-full rounded-r-full timer-pause-resume-btn">Pause</button>
+                    <button class="w-[50%] min-w-[64px] bg-red-400 hover:bg-red-500 rounded-l-full rounded-r-full timer-cancel-btn">Cancel</button>
+                </div>
+            </div>
+            <!-- timer adding screen -->
+            <div class="timer-adding-screen h-full w-full flex flex-col justify-center items-center gap-y-24">
+                <div class="w-[50%] flex flex-col justify-center items-center gap-y-2 sm:gap-y-4 text-blue-500 text-base sm:text-lg">
+                    <div class="flex gap-x-4 w-full justify-between min-w-[125px]">
+                        <p>Hrs</p>
+                        <p>Mins</p>
+                        <p>Secs</p>
+                    </div>
+                    <div class="flex gap-x-2 w-full min-w-[125px]">
+                        <input type="text" name="" id="time-input-1" class="timer-input w-[33%] bg-transparent border-b-2 border-blue-500 outline-none text-center">
+                        <p class="text-2xl sm:text-3xl">:</p>
+                        <input type="text" name="" id="time-input-2" class="timer-input w-[33%] bg-transparent border-b-2 border-blue-500 outline-none text-center">
+                        <p class="text-2xl sm:text-3xl">:</p>
+                        <input type="text" name="" id="time-input-3" class="timer-input w-[33%] bg-transparent border-b-2 border-blue-500 outline-none text-center">
+                    </div>
+                </div>
+                <button class="timer-start-btn w-[25%] min-w-[70px]  bg-slate-500 rounded-l-full rounded-r-full text-base sm:text-lg">Start</button>
+            </div>
+
+        </div>
+        <!-- bottom bar -->
+        <div class="w-full flex justify-center py-2">
+            <ul class="w-[70%] flex justify-between text-xs text-gray-600 sm:text-base">
+                <li><a href="alram.html">Alram</a></li>
+                <li><a href="stopwatch.html">Stopwatch</a></li>
+                <li class="text-sm text-blue-700 border-b-2 border-dotted border-blue-700 sm:text-lg"><a href="">Timer</a></li>
+            </ul>
+        </div>
+    </main>
+</body>
+</html>

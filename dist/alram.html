@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Document</title>
+    <style>
+        @keyframes move-left-to-right {
+            from{
+                transform: translateY(-100%);
+                width: 0;
+            }
+            to{
+                transform: translateY(0);
+                width: 60%;
+            }
+        }
+        .popup-animate{
+            animation: move-left-to-right 0.4s alternate;
+        }
+    </style>
+    <script defer src="alram.js"></script>
+</head>
+<body class="bg-slate-700 h-screen flex items-center justify-center px-4 py-2">
+    <!-- alram add pop up screen -->
+    <div class="add-popup-bg h-full w-full absolute hidden items-center justify-center px-4 py-2 transition-all">
+        <div class="w-[450px] max-w-2xl h-full max-h-[700px] rounded-md bg-[rgba(0,0,0,0.7)] flex justify-center  items-center transition-all">
+            <div class="add-popup w-[60%] max-w-[215px]  bg-slate-700 rounded-md flex flex-col items-center transition-all overflow-hidden">
+                <div class="w-full flex justify-end">
+                    <div class="add-popup-close-btn px-1 sm:px-2 text-white text-sm sm:text-lg rounded-full hover:bg-slate-600 transition-all">
+                        <i class="fa-solid fa-xmark"></i>
+                    </div>
+                </div>
+                <div class="flex flex-col justify-center items-center gap-y-6 py-4">
+                    <input type="time" class="time-input outline-none bg-transparent w-[80%] text-white">
+                    <div class="flex gap-x-2 text-sm sm:text-lg">
+                        <p class="day-input text-white cursor-pointer">M</p>
+                        <p class="day-input text-white cursor-pointer">T</p>
+                        <p class="day-input text-white cursor-pointer">W</p>
+                        <p class="day-input text-white cursor-pointer">T</p>
+                        <p class="day-input text-white cursor-pointer">F</p>
+                        <p class="day-input text-red-500 cursor-pointer">S</p>
+                        <p class="day-input text-white cursor-pointer">S</p>
+                    </div>
+                    <button class="alram-add-editcomplete-btn w-[50%] border-[1px] border-blue-700 rounded-r-full rounded-l-full text-white text-sm sm:text-lg 
+                    transition-all bg-blue-700 hover:bg-blue-900">
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- alram ringing screen -->
+    <div class="ringing-popup-bg h-full w-full absolute hidden items-center justify-center px-4 py-2 transition-all">
+        <div class="w-[450px] max-w-2xl h-full max-h-[700px] rounded-md bg-[rgba(0,0,0,0.7)] flex justify-center  items-center transition-all">
+            <div class="ringing-popup w-[60%] max-w-[215px]  bg-slate-700 rounded-md flex flex-col items-center transition-all overflow-hidden
+            gap-y-3 py-4">
+                <p class="text-lg sm:text-2xl text-white font-semibold"></p>
+                <div class="w-16 sm:w-20 aspect-square rounded-full overflow-hidden">
+                    <img src="../images/ringing.gif" class="w-full h-full" alt="">
+                </div>
+                <button class="alram-stop-btn alram-add-btn w-[50%] border-[1px] border-blue-700 rounded-r-full rounded-l-full 
+                text-white text-sm sm:text-lg transition-all  bg-blue-700 hover:bg-blue-900">Stop</button>
+            </div>
+        </div>
+    </div>
+
+    <main class="w-[450px] max-w-2xl h-full max-h-[700px] bg-slate-900 rounded-md flex flex-col">
+        <!-- header -->
+        <div class="flex justify-between p-2 text-white text-sm sm:text-lg">
+            <p>Alram</p>
+            <div class="add-popup-open-btn rounded-full px-1 sm:px-[0.3rem] hover:bg-slate-700 transition-all">
+                <i class="fa-solid fa-plus"></i>
+            </div>
+        </div>
+        <!-- alram list -->
+        <div class="alram-container h-full flex flex-col gap-y-3 overflow-auto">
+            <!-- <div class="flex justify-between items-center bg-gray-800 rounded-xl px-2 py-6 text-white">
+                <p class="text-xl">10:22</p>
+                <div class="flex gap-x-3 items-center">
+                   <div class="flex gap-x-1 text-xs text-blue-700">
+                        <p>M</p>
+                        <p>T</p>
+                        <p>W</p>
+                        <p>T</p>
+                        <p>F</p>
+                        <p class="text-white">S</p>
+                        <p>S</p>
+                   </div>
+                   <div class="alram-on-off-btn w-8 bg-gray-600 rounded-r-full rounded-l-full transition-all">
+                    <div class="bg-white w-[50%] aspect-square rounded-full transition-all"></div>
+                   </div>
+                   <div class="add-del-btn rounded-full px-2 py-2 hover:bg-slate-700 transition-all text-sm cursor-pointer">
+                    <i class="fa-solid fa-trash"></i>
+                    </div>
+                </div>
+            </div> -->
+        </div>
+       
+        <!-- bottom nav bar -->
+        <div class="w-full flex justify-center py-2">
+            <ul class="w-[70%] flex justify-between text-xs text-gray-600 sm:text-base">
+                <li class="text-sm text-blue-700 border-b-2 border-dotted border-blue-700 sm:text-lg"><a href="">Alram</a></li>
+                <li><a href="stopwatch.html">Stopwatch</a></li>
+                <li><a href="timer.html">Timer</a></li>
+            </ul>
+        </div>
+    </main>
+</body>
+</html>
